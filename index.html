@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caroline Herschel — Astronomer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #e8e0d0;
+      --dim: #a09880;
+      --gold: #c8a96e;
+      --bg: #09090f;
+      --bg2: #0f0f1a;
+      --accent: #3a3060;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── Star canvas ── */
+    #stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Layout ── */
+    main { position: relative; z-index: 1; max-width: 860px; margin: 0 auto; padding: 0 2rem 6rem; }
+
+    /* ── Hero ── */
+    header {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 7rem 2rem 5rem;
+      border-bottom: 1px solid rgba(200,169,110,.2);
+    }
+
+    header .label {
+      font-family: 'Cinzel', serif;
+      font-size: .7rem;
+      letter-spacing: .25em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      opacity: .8;
+    }
+
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 600;
+      line-height: 1.15;
+      letter-spacing: .04em;
+      color: var(--ink);
+      margin-bottom: .5rem;
+    }
+
+    header h1 span { color: var(--gold); }
+
+    header .dates {
+      font-style: italic;
+      color: var(--dim);
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    header .comet {
+      display: inline-block;
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+      border-radius: 2px;
+      margin: 0 .5rem;
+      vertical-align: middle;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(200,169,110,.1);
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      font-family: 'Cinzel', serif;
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--dim);
+      text-decoration: none;
+      transition: color .3s;
+    }
+    nav a:hover { color: var(--gold); }
+
+    /* ── Sections ── */
+    section {
+      margin-top: 4.5rem;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    section.visible { opacity: 1; transform: none; }
+
+    section h2 {
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem;
+      letter-spacing: .2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    section h2::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, rgba(200,169,110,.4), transparent);
+    }
+
+    p { color: var(--ink); margin-bottom: 1.1rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ── Discoveries grid ── */
+    .discoveries {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.2rem;
+      margin-top: 1.5rem;
+    }
+
+    .discovery-card {
+      background: var(--bg2);
+      border: 1px solid rgba(200,169,110,.15);
+      border-radius: 6px;
+      padding: 1.3rem 1.5rem;
+      transition: border-color .3s, background .3s;
+    }
+    .discovery-card:hover {
+      border-color: rgba(200,169,110,.5);
+      background: #13132a;
+    }
+
+    .discovery-card .num {
+      font-family: 'Cinzel', serif;
+      font-size: .65rem;
+      letter-spacing: .2em;
+      color: var(--gold);
+      opacity: .7;
+    }
+    .discovery-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: .3rem 0 .4rem;
+    }
+    .discovery-card p {
+      font-size: .9rem;
+      color: var(--dim);
+      margin: 0;
+    }
+
+    /* ── Timeline ── */
+    .timeline { margin-top: 1.5rem; border-left: 1px solid rgba(200,169,110,.25); padding-left: 2rem; }
+
+    .timeline-item { position: relative; margin-bottom: 2rem; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -2.4rem;
+      top: .5rem;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 8px var(--gold);
+    }
+
+    .timeline-item .year {
+      font-family: 'Cinzel', serif;
+      font-size: .75rem;
+      letter-spacing: .15em;
+      color: var(--gold);
+    }
+    .timeline-item p { margin: .2rem 0 0; font-size: .95rem; color: var(--dim); }
+
+    /* ── Quote ── */
+    blockquote {
+      border-left: 3px solid var(--gold);
+      padding: 1.2rem 1.8rem;
+      background: var(--bg2);
+      border-radius: 0 6px 6px 0;
+      margin: 2rem 0;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: var(--dim);
+    }
+    blockquote cite {
+      display: block;
+      margin-top: .6rem;
+      font-size: .8rem;
+      font-style: normal;
+      letter-spacing: .1em;
+      color: var(--gold);
+      opacity: .7;
+    }
+
+    /* ── Footer ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 3rem 2rem;
+      border-top: 1px solid rgba(200,169,110,.1);
+      font-size: .8rem;
+      color: var(--dim);
+      letter-spacing: .08em;
+    }
+  </style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+
+<header>
+  <p class="label">Assignment — Women in Science</p>
+  <h1>Caroline <span>Herschel</span></h1>
+  <p class="dates">
+    <span class="comet"></span>
+    1750 – 1848
+    <span class="comet" style="transform:scaleX(-1)"></span>
+  </p>
+  <p style="color:var(--dim);font-style:italic;font-size:1rem;">
+    First woman to discover a comet &amp; first paid female scientist in Britain
+  </p>
+</header>
+
+<nav>
+  <a href="#biography">Biography</a>
+  <a href="#discoveries">Discoveries</a>
+  <a href="#timeline">Timeline</a>
+  <a href="#legacy">Legacy</a>
+  <a href="#sources">Sources</a>
+</nav>
+
+<main>
+
+  <section id="biography">
+    <h2>Biography</h2>
+    <p>
+      Write your biographical content here. Introduce who Caroline Herschel was,
+      her early life in Hanover, and how she came to work alongside her brother William.
+    </p>
+    <blockquote>
+      "I did nothing for my brother but what a well-trained puppy dog would have done."
+      <cite>— Caroline Herschel</cite>
+    </blockquote>
+    <p>
+      Continue with her journey to England, her role as William's assistant,
+      and how she eventually became a pioneer in her own right.
+    </p>
+  </section>
+
+  <section id="discoveries">
+    <h2>Discoveries</h2>
+    <p>
+      Caroline catalogued hundreds of nebulae and discovered eight comets. Replace
+      these cards with the specific discoveries you research.
+    </p>
+    <div class="discoveries">
+      <div class="discovery-card">
+        <p class="num">Comet 01</p>
+        <h3>35P/Herschel–Rigollet</h3>
+        <p>Discovered 1788 — her first independent comet find.</p>
+      </div>
+      <div class="discovery-card">
+        <p class="num">Comet 02</p>
+        <h3>Add discovery name</h3>
+        <p>Fill in details from your research.</p>
+      </div>
+      <div class="discovery-card">
+        <p class="num">Nebulae</p>
+        <h3>NGC Catalogue</h3>
+        <p>Contributed 14 nebulae to the New General Catalogue.</p>
+      </div>
+      <div class="discovery-card">
+        <p class="num">Catalogue</p>
+        <h3>Star Catalogue</h3>
+        <p>Corrected and expanded Flamsteed's star catalogue.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="timeline">
+    <h2>Timeline</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <p class="year">1750</p>
+        <p>Born in Hanover, Germany, the eighth child of Isaac and Anna Herschel.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="year">1772</p>
+        <p>Moves to Bath, England to keep house for her brother William.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="year">1783</p>
+        <p>Begins independent sweeping of the heavens; discovers three nebulae.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="year">1786</p>
+        <p>Discovers her first comet — becoming the first woman to do so.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="year">1787</p>
+        <p>Awarded an annual salary of £50 by King George III — first paid female scientist in Britain.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="year">1828</p>
+        <p>Awarded the Gold Medal of the Royal Astronomical Society.</p>
+      </div>
+      <div class="timeline-item">
+        <p class="year">1848</p>
+        <p>Passes away in Hanover, aged 97.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="legacy">
+    <h2>Legacy</h2>
+    <p>
+      Discuss Caroline Herschel's lasting impact on astronomy and what her life
+      meant for women in science. Add your analysis here.
+    </p>
+    <p>
+      You might mention the asteroid 281 Lucretia, named in her honour, or how
+      modern telescopes continue the sky surveys she pioneered.
+    </p>
+  </section>
+
+  <section id="sources">
+    <h2>Sources</h2>
+    <p>List your bibliography here using your required citation format (MLA, APA, etc.).</p>
+    <p style="color:var(--dim);font-size:.9rem;">Source 1 — Author, Title, Year</p>
+    <p style="color:var(--dim);font-size:.9rem;">Source 2 — Author, Title, Year</p>
+    <p style="color:var(--dim);font-size:.9rem;">Source 3 — Author, Title, Year</p>
+  </section>
+
+</main>
+
+<footer>
+  Caroline Herschel &nbsp;·&nbsp; 1750–1848 &nbsp;·&nbsp; Astronomer &amp; Scientist
+</footer>
+
+<script>
+  // ── Starfield ──
+  const canvas = document.getElementById('stars');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+
+  function initStars() {
+    stars = Array.from({ length: 220 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 1.2 + .2,
+      a: Math.random(),
+      speed: Math.random() * .003 + .001,
+      phase: Math.random() * Math.PI * 2
+    }));
+  }
+
+  function drawStars(t) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (const s of stars) {
+      const alpha = s.a * (.5 + .5 * Math.sin(t * s.speed + s.phase));
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(232, 224, 208, ${alpha})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(drawStars);
+  }
+
+  resize();
+  initStars();
+  requestAnimationFrame(drawStars);
+  window.addEventListener('resize', () => { resize(); initStars(); });
+
+  // ── Scroll reveal ──
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.12 }
+  );
+  document.querySelectorAll('section').forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
