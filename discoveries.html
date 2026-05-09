@@ -79,7 +79,7 @@ footer{text-align:center;padding:2.5rem;border-top:1px solid rgba(200,169,110,.1
 <h1>Caroline <span>Herschel</span></h1>
 <span class="sub"><span class="comet flip"></span>Comets, Nebulae & Catalogues<span class="comet"></span></span>
 </header>
-<nav><a href="index.html">Home</a><a href="biography.html">Biography</a><a href="discoveries.html"  class="active">Discoveries</a><a href="timeline.html">Timeline</a><a href="legacy.html">Legacy</a><a href="sources.html">Sources</a></nav>
+<nav><a href="index.html">Home</a><a href="biography.html">Biography</a><a href="discoveries.html"  class="active">Discoveries</a><a href="timeline.html">Timeline</a><a href="legacy.html">Legacy</a><a href="compare.html">Compare</a><a href="sources.html">Sources</a></nav>
 <main>
 <h2>Comets</h2>
 <p>Caroline discovered eight comets in total. Replace these cards with your researched details.</p>
@@ -96,6 +96,51 @@ footer{text-align:center;padding:2.5rem;border-top:1px solid rgba(200,169,110,.1
 <div class="card"><span class="tag">NGC</span><h3>14 Nebulae</h3><p>Contributed to the New General Catalogue.</p></div>
 <div class="card"><span class="tag">Catalogue</span><h3>Flamsteed Corrections</h3><p>Identified 561 stars omitted from the original catalogue.</p></div>
 </div>
+
+<h2>Comet Orbit Diagram</h2>
+<p>The diagram below shows the elliptical orbit of a comet around the Sun. Write your own explanation of how comets travel and what makes their orbits different from planets.</p>
+<svg viewBox="0 0 500 300" xmlns="http://www.w3.org/2000/svg" style="display:block;margin:1.5rem auto;max-width:100%;background:#0a0a14;border-radius:10px;border:1px solid rgba(200,169,110,.2)">
+  <!-- stars background -->
+  <circle cx="60" cy="30" r="1" fill="#e8e0d0" opacity=".5"/>
+  <circle cx="120" cy="80" r=".8" fill="#e8e0d0" opacity=".4"/>
+  <circle cx="200" cy="20" r="1" fill="#e8e0d0" opacity=".6"/>
+  <circle cx="310" cy="50" r=".8" fill="#e8e0d0" opacity=".3"/>
+  <circle cx="420" cy="25" r="1" fill="#e8e0d0" opacity=".5"/>
+  <circle cx="460" cy="90" r=".7" fill="#e8e0d0" opacity=".4"/>
+  <circle cx="30" cy="200" r="1" fill="#e8e0d0" opacity=".3"/>
+  <circle cx="480" cy="240" r=".8" fill="#e8e0d0" opacity=".5"/>
+  <circle cx="380" cy="270" r="1" fill="#e8e0d0" opacity=".4"/>
+  <circle cx="150" cy="260" r=".8" fill="#e8e0d0" opacity=".3"/>
+  <!-- orbit ellipse -->
+  <ellipse cx="220" cy="160" rx="190" ry="110" fill="none" stroke="#c8a96e" stroke-width="1" stroke-dasharray="6 4" opacity=".5"/>
+  <!-- Sun -->
+  <circle cx="340" cy="160" r="18" fill="#c8a96e" opacity=".15"/>
+  <circle cx="340" cy="160" r="13" fill="#c8a96e" opacity=".9"/>
+  <text x="340" y="188" text-anchor="middle" fill="#c8a96e" font-size="10" font-family="Georgia,serif" opacity=".8">Sun</text>
+  <!-- comet at perihelion (closest point) -->
+  <circle cx="150" cy="160" r="5" fill="#e8e0d0"/>
+  <!-- comet tail -->
+  <line x1="150" y1="160" x2="110" y2="148" stroke="#e8e0d0" stroke-width="2" opacity=".6"/>
+  <line x1="150" y1="160" x2="105" y2="158" stroke="#e8e0d0" stroke-width="1.2" opacity=".4"/>
+  <line x1="150" y1="160" x2="108" y2="170" stroke="#e8e0d0" stroke-width=".8" opacity=".3"/>
+  <text x="150" y="178" text-anchor="middle" fill="#e8e0d0" font-size="10" font-family="Georgia,serif" opacity=".8">Comet</text>
+  <!-- perihelion label -->
+  <line x1="150" y1="155" x2="150" y2="130" stroke="#c8a96e" stroke-width=".8" stroke-dasharray="3 2" opacity=".5"/>
+  <text x="150" y="125" text-anchor="middle" fill="#c8a96e" font-size="9" font-family="Georgia,serif">Perihelion</text>
+  <!-- aphelion label -->
+  <text x="30" y="155" text-anchor="middle" fill="#c8a96e" font-size="9" font-family="Georgia,serif">Aphelion</text>
+  <line x1="30" y1="158" x2="30" y2="165" stroke="#c8a96e" stroke-width=".8" stroke-dasharray="3 2" opacity=".5"/>
+  <circle cx="30" cy="168" r="3" fill="#e8e0d0" opacity=".5"/>
+  <!-- direction arrow -->
+  <path d="M220 50 Q260 48 295 60" fill="none" stroke="#c8a96e" stroke-width="1" opacity=".5" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#c8a96e" opacity=".6"/>
+    </marker>
+  </defs>
+  <text x="255" y="44" text-anchor="middle" fill="#c8a96e" font-size="9" font-family="Georgia,serif" opacity=".7">direction of travel</text>
+</svg>
+<p style="color:#a09880;font-size:.9rem;text-align:center;font-style:italic;">Diagram: elliptical comet orbit showing perihelion (closest to Sun) and aphelion (farthest from Sun).</p>
 </main>
 <footer>Caroline Herschel &nbsp;&middot;&nbsp; 1750&ndash;1848 &nbsp;&middot;&nbsp; Astronomer &amp; Pioneer</footer>
 <script>
