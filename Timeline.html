@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Timeline — Caroline Herschel</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<canvas id="stars"></canvas>
+
+<header>
+  <p class="label">Women in Science</p>
+  <h1>Caroline <span>Herschel</span></h1>
+  <p class="sub">Key Dates in Her Life</p>
+</header>
+
+<nav>
+      <a href="index.html">Home</a>
+      <a href="biography.html">Biography</a>
+      <a href="discoveries.html">Discoveries</a>
+      <a href="timeline.html" class="active">Timeline</a>
+      <a href="legacy.html">Legacy</a>
+      <a href="sources.html">Sources</a>
+    </nav>
+
+<main>
+  <style>
+    .tl { border-left:1px solid rgba(200,169,110,.25); padding-left:2rem; margin-top:1rem; }
+    .tl-item { position:relative; margin-bottom:2rem; }
+    .tl-item::before { content:''; position:absolute; left:-2.4rem; top:.55rem; width:7px; height:7px; border-radius:50%; background:var(--gold); box-shadow:0 0 8px var(--gold); }
+    .tl-item .year { font-family:'Cinzel',serif; font-size:.75rem; letter-spacing:.15em; color:var(--gold); }
+    .tl-item p { margin:.2rem 0 0; font-size:.95rem; color:var(--dim); }
+  </style>
+
+  <div class="fade">
+    <h2>Life Events</h2>
+    <div class="tl">
+      <div class="tl-item"><p class="year">1750</p><p>Born March 16 in Hanover, Germany.</p></div>
+      <div class="tl-item"><p class="year">1772</p><p>Moves to Bath, England to live with her brother William.</p></div>
+      <div class="tl-item"><p class="year">1783</p><p>Begins independent sky sweeps; discovers three new nebulae.</p></div>
+      <div class="tl-item"><p class="year">1786</p><p>Discovers her first comet — the first woman to do so.</p></div>
+      <div class="tl-item"><p class="year">1787</p><p>Awarded an annual salary of £50 by King George III.</p></div>
+      <div class="tl-item"><p class="year">1797</p><p>Presents a catalogue of 561 stars missing from Flamsteed's atlas to the Royal Society.</p></div>
+      <div class="tl-item"><p class="year">1822</p><p>Returns to Hanover after William's death.</p></div>
+      <div class="tl-item"><p class="year">1828</p><p>Awarded the Gold Medal of the Royal Astronomical Society.</p></div>
+      <div class="tl-item"><p class="year">1838</p><p>Elected an honorary member of the Royal Astronomical Society.</p></div>
+      <div class="tl-item"><p class="year">1846</p><p>Awarded the Gold Medal for Science by the King of Prussia on her 96th birthday.</p></div>
+      <div class="tl-item"><p class="year">1848</p><p>Passes away January 9 in Hanover, aged 97.</p></div>
+    </div>
+  </div>
+</main>
+
+<footer>Caroline Herschel &nbsp;·&nbsp; 1750–1848 &nbsp;·&nbsp; Astronomer &amp; Scientist</footer>
+
+<script>
+  const canvas = document.getElementById('stars');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+  function resize() { canvas.width = innerWidth; canvas.height = innerHeight; }
+  function init() {
+    stars = Array.from({length:200}, () => ({
+      x: Math.random()*canvas.width, y: Math.random()*canvas.height,
+      r: Math.random()*1.2+.2, a: Math.random(),
+      speed: Math.random()*.003+.001, phase: Math.random()*Math.PI*2
+    }));
+  }
+  function draw(t) {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    for (const s of stars) {
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(232,224,208,${s.a*(.5+.5*Math.sin(t*s.speed+s.phase))})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  resize(); init(); requestAnimationFrame(draw);
+  window.addEventListener('resize', ()=>{ resize(); init(); });
+  const obs = new IntersectionObserver(e=>e.forEach(x=>{ if(x.isIntersecting) x.target.classList.add('visible'); }), {threshold:.1});
+  document.querySelectorAll('.fade').forEach(el=>obs.observe(el));
+</script>
+
+</body>
+</html>
