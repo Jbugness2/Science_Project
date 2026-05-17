@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Caroline Herschel — Infographic</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#09090f;color:#e8e0d0;font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;line-height:1.7;overflow-x:hidden}
+.page{max-width:960px;margin:0 auto;padding:2.5rem 2rem 4rem}
+
+/* HEADER */
+.hdr{text-align:center;padding:2.5rem 2rem 2rem;border-bottom:1px solid rgba(200,169,110,.25);margin-bottom:2.5rem}
+h1{font-family:'Cinzel',serif;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:600;letter-spacing:.06em;color:#e8e0d0}
+h1 span{color:#c8a96e}
+.tagline{display:flex;align-items:center;justify-content:center;gap:.8rem;color:#a09880;font-style:italic;font-size:.95rem;margin-top:.5rem}
+.comet{display:inline-block;width:50px;height:1px;background:linear-gradient(90deg,transparent,#c8a96e)}
+.comet.flip{background:linear-gradient(90deg,#c8a96e,transparent)}
+
+/* SECTION HEADINGS */
+.sec-label{font-family:'Cinzel',serif;font-size:.62rem;letter-spacing:.28em;color:#c8a96e;text-transform:uppercase;text-align:center;margin-bottom:1.5rem}
+.sec-label span{opacity:.5;margin:0 .6rem}
+
+/* SECTION DIVIDER */
+.divider{border:none;border-top:1px solid rgba(200,169,110,.12);margin:2.8rem 0}
+
+/* TIMELINE — vertical */
+.vtl{display:grid;grid-template-columns:1fr 24px 1fr;gap:0;position:relative;margin-bottom:2rem;max-width:620px;margin-left:auto;margin-right:auto}
+.vtl-spine{display:flex;flex-direction:column;align-items:center}
+.vtl-spine-line{flex:1;width:1px;background:rgba(200,169,110,.35)}
+.vtl-dot{width:8px;height:8px;border-radius:50%;background:#c8a96e;box-shadow:0 0 6px rgba(200,169,110,.7);flex-shrink:0}
+.vtl-item{display:contents}
+.vtl-left{text-align:right;padding:.28rem .8rem .28rem 0}
+.vtl-right{text-align:left;padding:.28rem 0 .28rem .8rem}
+.vtl-empty{padding:.28rem 0}
+.vtl-yr{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.12em;color:#c8a96e;display:block;margin-bottom:.08rem}
+.vtl-desc{font-size:.75rem;color:#a09880;line-height:1.35}
+
+/* TWO-COL LAYOUT */
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
+@media(max-width:640px){.two-col{grid-template-columns:1fr}}
+
+/* ORBIT DIAGRAM */
+.orbit-wrap{background:#0a0a14;border:1px solid rgba(200,169,110,.2);border-radius:10px;padding:1rem}
+.orbit-wrap svg{display:block;width:100%;height:auto}
+
+/* KEPLER BOX */
+.kepler-box{background:#0f0f1a;border:1px solid rgba(200,169,110,.22);border-radius:8px;padding:1.4rem 1.8rem;margin-bottom:1.4rem;text-align:center}
+.formula{font-family:Georgia,serif;font-size:2rem;color:#c8a96e;letter-spacing:.05em}
+.formula-note{font-size:.82rem;color:#a09880;margin-top:.4rem;font-style:italic}
+.worked{background:#0a0a14;border:1px solid rgba(200,169,110,.15);border-radius:8px;padding:1.2rem 1.5rem}
+.worked-title{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.2em;color:#c8a96e;text-transform:uppercase;margin-bottom:.8rem}
+.step{display:flex;align-items:baseline;gap:.7rem;margin-bottom:.4rem;font-size:.85rem;color:#a09880}
+.step-num{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.1em;color:#c8a96e;min-width:44px}
+.step-eq{font-family:Georgia,serif;color:#e8e0d0}
+.step-result{color:#c8a96e;font-weight:600}
+.var-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem .8rem;margin-top:1rem}
+.var-item{font-size:.82rem;color:#a09880}
+.var-item em{color:#c8a96e;font-style:normal;font-family:Georgia,serif}
+
+/* COMPARISON TABLE */
+.compare-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+thead tr{border-bottom:1px solid rgba(200,169,110,.3)}
+thead th{font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.18em;color:#c8a96e;text-transform:uppercase;padding:.75rem 1rem;text-align:left}
+thead th:first-child{width:28%}
+tbody tr{border-bottom:1px solid rgba(200,169,110,.07)}
+tbody tr:hover{background:rgba(200,169,110,.04)}
+tbody td{padding:.7rem 1rem;color:#a09880;vertical-align:top;line-height:1.45}
+tbody td:first-child{color:#e8e0d0;font-style:italic;font-size:.85rem}
+
+/* FOOTER */
+.ftr{text-align:center;border-top:1px solid rgba(200,169,110,.12);padding-top:1.5rem;margin-top:3rem;font-family:'Cinzel',serif;font-size:.6rem;letter-spacing:.2em;color:#a09880;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- HEADER -->
+<div class="hdr">
+  <h1>Caroline <span>Herschel</span></h1>
+  <div class="tagline"><span class="comet flip"></span>1750 &nbsp;&middot;&nbsp; 1848 &nbsp;&middot;&nbsp; Astronomer &nbsp;&middot;&nbsp; Pioneer<span class="comet"></span></div>
+</div>
+
+<!-- TIMELINE — vertical, alternating left/right -->
+<div class="sec-label" style="margin-bottom:1.8rem"><span>&#9670;</span>Timeline of Life &amp; Discoveries<span>&#9670;</span></div>
+<div class="vtl">
+
+  <!-- Row helper: left text | spine | right text -->
+  <!-- odd rows: text on LEFT, right empty -->
+  <!-- even rows: left empty, text on RIGHT -->
+
+  <!-- 1750 LEFT -->
+  <div class="vtl-left"><span class="vtl-yr">1750</span><span class="vtl-desc">Born March 16 in Hanover, Germany.</span></div>
+  <div class="vtl-spine"><div class="vtl-spine-line" style="min-height:8px"></div><div class="vtl-dot"></div><div class="vtl-spine-line"></div></div>
+  <div class="vtl-empty"></div>
+
+  <!-- 1772 RIGHT -->
+  <div class="vtl-empty"></div>
+  <div class="vtl-spine"><div class="vtl-spine-line"></div><div class="vtl-dot"></div><div class="vtl-spine-line"></div></div>
+  <div class="vtl-right"><span class="vtl-yr">1772</span><span class="vtl-desc">Moves to Bath, England to keep house for her brother William.</span></div>
+
+  <!-- 1783 LEFT -->
+  <div class="vtl-left"><span class="vtl-yr">1783</span><span class="vtl-desc">Begins independent sky sweeps; discovers three new nebulae.</span></div>
+  <div class="vtl-spine"><div class="vtl-spine-line"></div><div class="vtl-dot"></div><div class="vtl-spine-line"></div></div>
+  <div class="vtl-empty"></div>
+
+  <!-- 1786 RIGHT -->
+  <div class="vtl-empty"></div>
+  <div class="vtl-spine"><div class="vtl-spine-line"></div><div class="vtl-dot"></div><div class="vtl-spine-line"></div></div>
+  <div class="vtl-right"><span class="vtl-yr">1786</span><span class="vtl-desc">Discovers her first comet — the first woman ever to do so.</span></div>
+
+  <!-- 1787 LEFT -->
+  <div class="vtl-left"><span class="vtl-yr">1787</span><span class="vtl-desc">Awarded an annual salary of £50 by King George III — first paid female scientist in Britain.</span></div>
+  <div class="vtl-spine"><div class="vtl-spine-line"></div><div class="vtl-dot"></div><div class="vtl-spine-line"></div></div>
+  <div class="vtl-empty"></div>
+
+  <!-- 1797 RIGHT -->
+  <div class="vtl-empty"></div>
+  <div class="vtl-spine"><div class="vtl-spine-line"></div><div class="vtl-dot"></div><div class="vtl-spine-line"></div></div>
+  <div class="vtl-right"><span class="vtl-yr">1797</span><span class="vtl-desc">Presents a catalogue of 561 missing stars from Flamsteed's atlas to the Royal Society.</span></div>
+
+  <!-- 1822 LEFT -->
+  <div class="vtl-left"><span class="vtl-yr">1822</span><span class="vtl-desc">Returns to Hanover after William's death.</span></div>
+  <div class="vtl-spine"><div class="vtl-spine-line"></div><div class="vtl-dot"></div><div class="vtl-spine-line"></div></div>
+  <div class="vtl-empty"></div>
+
+  <!-- 1828 RIGHT -->
+  <div class="vtl-empty"></div>
+  <div class="vtl-spine"><div class="vtl-spine-line"></div><div class="vtl-dot"></div><div class="vtl-spine-line"></div></div>
+  <div class="vtl-right"><span class="vtl-yr">1828</span><span class="vtl-desc">Awarded the Gold Medal of the Royal Astronomical Society.</span></div>
+
+  <!-- 1838 LEFT -->
+  <div class="vtl-left"><span class="vtl-yr">1838</span><span class="vtl-desc">Elected honorary member of the Royal Astronomical Society.</span></div>
+  <div class="vtl-spine"><div class="vtl-spine-line"></div><div class="vtl-dot"></div><div class="vtl-spine-line"></div></div>
+  <div class="vtl-empty"></div>
+
+  <!-- 1846 RIGHT -->
+  <div class="vtl-empty"></div>
+  <div class="vtl-spine"><div class="vtl-spine-line"></div><div class="vtl-dot"></div><div class="vtl-spine-line"></div></div>
+  <div class="vtl-right"><span class="vtl-yr">1846</span><span class="vtl-desc">Receives the Gold Medal for Science from the King of Prussia on her 96th birthday.</span></div>
+
+  <!-- 1848 LEFT -->
+  <div class="vtl-left"><span class="vtl-yr">1848</span><span class="vtl-desc">Passes away January 9 in Hanover, aged 97.</span></div>
+  <div class="vtl-spine"><div class="vtl-spine-line"></div><div class="vtl-dot"></div><div class="vtl-spine-line" style="min-height:8px"></div></div>
+  <div class="vtl-empty"></div>
+
+</div>
+
+<hr class="divider"/>
+
+<!-- ORBIT + KEPLER -->
+<div class="sec-label"><span>&#9670;</span>Orbital Mechanics &amp; Kepler's Third Law<span>&#9670;</span></div>
+<div class="two-col">
+
+  <!-- LEFT: orbit diagram -->
+  <div>
+    <div class="orbit-wrap">
+      <svg viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg">
+        <!-- stars -->
+        <circle cx="40" cy="20" r="1" fill="#e8e0d0" opacity=".45"/>
+        <circle cx="100" cy="55" r=".7" fill="#e8e0d0" opacity=".35"/>
+        <circle cx="180" cy="15" r="1" fill="#e8e0d0" opacity=".5"/>
+        <circle cx="270" cy="40" r=".8" fill="#e8e0d0" opacity=".3"/>
+        <circle cx="370" cy="18" r="1" fill="#e8e0d0" opacity=".45"/>
+        <circle cx="400" cy="75" r=".7" fill="#e8e0d0" opacity=".35"/>
+        <circle cx="20" cy="170" r=".9" fill="#e8e0d0" opacity=".3"/>
+        <circle cx="410" cy="210" r=".7" fill="#e8e0d0" opacity=".4"/>
+        <circle cx="320" cy="240" r="1" fill="#e8e0d0" opacity=".35"/>
+        <circle cx="130" cy="235" r=".8" fill="#e8e0d0" opacity=".3"/>
+        <circle cx="60" cy="120" r=".6" fill="#e8e0d0" opacity=".25"/>
+        <circle cx="350" cy="150" r=".7" fill="#e8e0d0" opacity=".2"/>
+        <!-- orbit ellipse -->
+        <ellipse cx="185" cy="138" rx="160" ry="95" fill="none" stroke="#c8a96e" stroke-width="1" stroke-dasharray="5 4" opacity=".55"/>
+        <!-- Sun -->
+        <circle cx="295" cy="138" r="16" fill="#c8a96e" opacity=".15"/>
+        <circle cx="295" cy="138" r="11" fill="#c8a96e" opacity=".9"/>
+        <text x="295" y="158" text-anchor="middle" fill="#c8a96e" font-size="9" font-family="Georgia,serif" opacity=".8">Sun</text>
+        <!-- semi-major axis line -->
+        <line x1="25" y1="138" x2="295" y2="138" stroke="#c8a96e" stroke-width=".7" stroke-dasharray="3 3" opacity=".4"/>
+        <text x="158" y="131" text-anchor="middle" fill="#c8a96e" font-size="8.5" font-family="Georgia,serif" opacity=".65">semi-major axis (a)</text>
+        <!-- comet at perihelion -->
+        <circle cx="128" cy="138" r="5" fill="#e8e0d0"/>
+        <!-- tail -->
+        <line x1="128" y1="138" x2="90" y2="126" stroke="#e8e0d0" stroke-width="2" opacity=".55"/>
+        <line x1="128" y1="138" x2="86" y2="137" stroke="#e8e0d0" stroke-width="1.2" opacity=".35"/>
+        <line x1="128" y1="138" x2="89" y2="149" stroke="#e8e0d0" stroke-width=".8" opacity=".25"/>
+        <text x="128" y="155" text-anchor="middle" fill="#e8e0d0" font-size="9" font-family="Georgia,serif" opacity=".8">Comet</text>
+        <!-- perihelion label -->
+        <line x1="128" y1="132" x2="128" y2="108" stroke="#c8a96e" stroke-width=".7" stroke-dasharray="3 2" opacity=".45"/>
+        <text x="128" y="103" text-anchor="middle" fill="#c8a96e" font-size="8.5" font-family="Georgia,serif">Perihelion</text>
+        <!-- aphelion label -->
+        <circle cx="25" cy="138" r="3" fill="#e8e0d0" opacity=".45"/>
+        <line x1="25" y1="132" x2="25" y2="108" stroke="#c8a96e" stroke-width=".7" stroke-dasharray="3 2" opacity=".45"/>
+        <text x="25" y="103" text-anchor="middle" fill="#c8a96e" font-size="8.5" font-family="Georgia,serif">Aphelion</text>
+        <!-- direction arrow -->
+        <path d="M185 43 Q220 40 250 52" fill="none" stroke="#c8a96e" stroke-width="1" opacity=".5"/>
+        <polygon points="250,48 256,55 248,57" fill="#c8a96e" opacity=".55"/>
+        <text x="205" y="37" text-anchor="middle" fill="#c8a96e" font-size="8" font-family="Georgia,serif" opacity=".65">direction of travel</text>
+        <!-- note box -->
+        <rect x="28" y="170" width="148" height="72" rx="4" fill="#0f0f1a" stroke="rgba(200,169,110,.2)" stroke-width=".8"/>
+        <text x="38" y="186" fill="#a09880" font-size="8" font-family="Georgia,serif">Comets travel in highly elliptical</text>
+        <text x="38" y="198" fill="#a09880" font-size="8" font-family="Georgia,serif">orbits with the Sun at one focus.</text>
+        <text x="38" y="210" fill="#a09880" font-size="8" font-family="Georgia,serif">(Kepler's First Law, 1609)</text>
+        <text x="38" y="226" fill="#a09880" font-size="8" font-family="Georgia,serif">At perihelion, comet moves fastest.</text>
+        <text x="38" y="238" fill="#a09880" font-size="8" font-family="Georgia,serif">At aphelion, comet moves slowest.</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- RIGHT: Kepler law + worked example -->
+  <div>
+    <div class="kepler-box">
+      <div class="formula">T&sup2; = a&sup3;</div>
+      <div class="formula-note">Kepler's Third Law &nbsp;&middot;&nbsp; units: AU &amp; years</div>
+    </div>
+    <div class="var-grid" style="margin-bottom:1.2rem">
+      <div class="var-item"><em>T</em> = Orbital period in Earth years</div>
+      <div class="var-item"><em>a</em> = Semi-major axis in Astronomical Units</div>
+      <div class="var-item"><em>1 AU</em> = 149.6 million km (Earth–Sun distance)</div>
+    </div>
+    <div class="worked">
+      <div class="worked-title">Worked Example — 35P/Herschel-Rigollet</div>
+      <div class="step">
+        <span class="step-num">Step 1</span>
+        <span class="step-eq"><em>a</em> = <span class="step-result">57.6 AU</span></span>
+      </div>
+      <div class="step">
+        <span class="step-num">Step 2</span>
+        <span class="step-eq"><em>a</em>&sup3; = 57.6&sup3; = <span class="step-result">190,955</span></span>
+      </div>
+      <div class="step">
+        <span class="step-num">Step 3</span>
+        <span class="step-eq">T&sup2; = a&sup3; = <span class="step-result">190,955</span></span>
+      </div>
+      <div class="step">
+        <span class="step-num">Step 4</span>
+        <span class="step-eq">T = &radic;190,955 &asymp; <span class="step-result">437 years</span></span>
+      </div>
+      <p style="font-size:.78rem;color:#a09880;margin-top:.8rem;font-style:italic;">→ The accepted orbital period of 35P/Herschel-Rigollet is ~155 years, confirming an elliptical orbit.</p>
+    </div>
+  </div>
+</div>
+
+<hr class="divider"/>
+
+<!-- COMPARISON TABLE -->
+<div class="sec-label"><span>&#9670;</span>Comparison: Caroline Herschel vs. Sir William Herschel<span>&#9670;</span></div>
+<div class="compare-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>Caroline Herschel</th>
+        <th>Sir William Herschel</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Born</td><td>1750, Hanover, Germany</td><td>1738, Hanover, Germany</td></tr>
+      <tr><td>Field</td><td>Astronomy</td><td>Astronomy</td></tr>
+      <tr><td>Major discoveries</td><td>8 comets, 14 nebulae, 561 missing stars catalogued</td><td>Uranus, 27 comets, 2,500 stars catalogued</td></tr>
+      <tr><td>Tools used</td><td>Reflecting telescope</td><td>Reflecting telescope</td></tr>
+      <tr><td>Recognition received</td><td>Gold Medal, RAS (1828)</td><td>Gold Medal, RAS (1789)</td></tr>
+      <tr><td>Obstacles faced</td><td>Gender barriers, limited formal education, expected domestic service</td><td>Limited formal education</td></tr>
+      <tr><td>Legacy</td><td>Pioneer for women in science; first salaried female scientist in Britain</td><td>Pioneer in astronomical observation and cataloguing</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- FOOTER -->
+<div class="ftr">Caroline Herschel &nbsp;&middot;&nbsp; 1750–1848 &nbsp;&middot;&nbsp; Astronomer &amp; Pioneer</div>
+
+</div>
+</body>
+</html>
